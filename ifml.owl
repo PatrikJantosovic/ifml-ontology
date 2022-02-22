@@ -1,0 +1,1187 @@
+@prefix : <http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2> .
+
+<http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasAction
+:hasAction rdf:type owl:ObjectProperty ;
+           rdfs:domain :DynamicBehavior ;
+           rdfs:range :Action .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasActionEvent
+:hasActionEvent rdf:type owl:ObjectProperty ;
+                rdfs:domain :Action ;
+                rdfs:range :ActionEvent .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasActivationExpression
+:hasActivationExpression rdf:type owl:ObjectProperty ;
+                         rdfs:domain [ rdf:type owl:Class ;
+                                       owl:unionOf ( :Event
+                                                     :ViewComponentPart
+                                                   )
+                                     ] ;
+                         rdfs:range :ActivationExpression .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasActivityConcept
+:hasActivityConcept rdf:type owl:ObjectProperty ;
+                    rdfs:domain :ModuleDefinition ;
+                    rdfs:range :ActivityConcept .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasAnnotation
+:hasAnnotation rdf:type owl:ObjectProperty ;
+               rdfs:domain :Element ;
+               rdfs:range :Annotation .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasBehaviorConcept
+:hasBehaviorConcept rdf:type owl:ObjectProperty ;
+                    rdfs:domain :DynamicBehavior ;
+                    rdfs:range :BehaviorConcept .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasBehavioralFeatureConcept
+:hasBehavioralFeatureConcept rdf:type owl:ObjectProperty ;
+                             rdfs:domain :DynamicBehavior ;
+                             rdfs:range :BehavioralFeatureConcept .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasConditionalExpression
+:hasConditionalExpression rdf:type owl:ObjectProperty ;
+                          rdfs:domain :DataBinding ;
+                          rdfs:range :ConditionalExpression .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasConstraint
+:hasConstraint rdf:type owl:ObjectProperty ;
+               rdfs:domain :Element ;
+               rdfs:range :Constraint .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasContext
+:hasContext rdf:type owl:ObjectProperty ;
+            rdfs:domain [ rdf:type owl:Class ;
+                          owl:unionOf ( :ContextDimension
+                                        :ContextVariable
+                                      )
+                        ] ;
+            rdfs:range :Context .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasContextDimension
+:hasContextDimension rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Context ;
+                     rdfs:range :ContextDimension .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasContextVariable
+:hasContextVariable rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Context ;
+                    rdfs:range :ContextVariable .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasContextVariableScope
+:hasContextVariableScope rdf:type owl:ObjectProperty ;
+                         rdfs:domain :ContextVariable .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasDataBinding
+:hasDataBinding rdf:type owl:ObjectProperty ;
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( :DataContextVariable
+                                            :DomainConcept
+                                          )
+                            ] ;
+                rdfs:range :DataBinding .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasDataContextVariable
+:hasDataContextVariable rdf:type owl:ObjectProperty ;
+                        rdfs:domain :DataBinding ;
+                        rdfs:range :DataContextVariable .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasDomainConcept
+:hasDomainConcept rdf:type owl:ObjectProperty ;
+                  rdfs:domain :DataBinding ;
+                  rdfs:range :DomainConcept .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasDomainElement
+:hasDomainElement rdf:type owl:ObjectProperty ;
+                  rdfs:domain :DomainModel ;
+                  rdfs:range :DomainElement .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasDomainModel
+:hasDomainModel rdf:type owl:ObjectProperty ;
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( :DomainElement
+                                            :IFMLModel
+                                          )
+                            ] ;
+                rdfs:range :DomainModel .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasDynamicBehavior
+:hasDynamicBehavior rdf:type owl:ObjectProperty ;
+                    rdfs:domain [ rdf:type owl:Class ;
+                                  owl:unionOf ( :Action
+                                                :BehaviorConcept
+                                                :BehavioralFeatureConcept
+                                              )
+                                ] ;
+                    rdfs:range :DynamicBehavior .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasExpression
+:hasExpression rdf:type owl:ObjectProperty ;
+               rdfs:domain :SystemEvent ;
+               rdfs:range :Expression .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasInInteractionFlow
+:hasInInteractionFlow rdf:type owl:ObjectProperty ;
+                      rdfs:domain :InteractionFlowElement ;
+                      rdfs:range :InteractionFlow ;
+                      owl:propertyDisjointWith :hasOutInteractionFlow .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasInputPort
+:hasInputPort rdf:type owl:ObjectProperty ;
+              rdfs:domain :ModuleDefinition ;
+              rdfs:range :PortDefinition ;
+              owl:propertyDisjointWith :hasOutputPort .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasInteractionFlow
+:hasInteractionFlow rdf:type owl:ObjectProperty ;
+                    rdfs:domain :InteractionFlowExpression ;
+                    rdfs:range :InteractionFlow .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasInteractionFlowExpression
+:hasInteractionFlowExpression rdf:type owl:ObjectProperty ;
+                              rdfs:domain :Event ;
+                              rdfs:range :InteractionFlowExpression .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasInteractionFlowModel
+:hasInteractionFlowModel rdf:type owl:ObjectProperty ;
+                         rdfs:domain :IFMLModel ;
+                         rdfs:range :InteractionFlowModel .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasInteractionFlowModelElement
+:hasInteractionFlowModelElement rdf:type owl:ObjectProperty ;
+                                rdfs:domain [ rdf:type owl:Class ;
+                                              owl:unionOf ( :InteractionFlowModel
+                                                            :ModuleDefinition
+                                                          )
+                                            ] ;
+                                rdfs:range :InteractionFlowModelElement .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasModularizationElement
+:hasModularizationElement rdf:type owl:ObjectProperty ;
+                          rdfs:domain :ModulePackage ;
+                          rdfs:range :ModularizationElement .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasModule
+:hasModule rdf:type owl:ObjectProperty ;
+           rdfs:domain [ rdf:type owl:Class ;
+                         owl:unionOf ( :ModuleDefinition
+                                       :Port
+                                     )
+                       ] ;
+           rdfs:range :Module .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasModuleDefinition
+:hasModuleDefinition rdf:type owl:ObjectProperty ;
+                     rdfs:domain [ rdf:type owl:Class ;
+                                   owl:unionOf ( :ActivityConcept
+                                                 :Module
+                                               )
+                                 ] ;
+                     rdfs:range :ModuleDefinition .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasModulePackage
+:hasModulePackage rdf:type owl:ObjectProperty ;
+                  rdfs:domain :ModularizationElement ;
+                  rdfs:range :ModulePackage .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasOutInteractionFlow
+:hasOutInteractionFlow rdf:type owl:ObjectProperty ;
+                       rdfs:domain :InteractionFlowElement ;
+                       rdfs:range :InteractionFlow .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasOutputPort
+:hasOutputPort rdf:type owl:ObjectProperty ;
+               rdfs:domain :ModuleDefinition ;
+               rdfs:range :PortDefinition .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasParameterBinding
+:hasParameterBinding rdf:type owl:ObjectProperty ;
+                     rdfs:domain :ParameterBindingGroup ;
+                     rdfs:range :ParameterBinding .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasParameterBindingGroup
+:hasParameterBindingGroup rdf:type owl:ObjectProperty ;
+                          rdfs:domain :InteractionFlow ;
+                          rdfs:range :ParameterBindingGroup .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasParameters
+:hasParameters rdf:type owl:ObjectProperty ;
+               rdfs:domain :InteractionFlowElement ;
+               rdfs:range :Parameter .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasParentViewComponentPart
+:hasParentViewComponentPart rdf:type owl:ObjectProperty ;
+                            rdfs:domain :ViewComponentPart ;
+                            rdfs:range :ViewComponentPart ;
+                            owl:propertyDisjointWith :hasSubViewComponentPart .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasPort
+:hasPort rdf:type owl:ObjectProperty ;
+         rdfs:domain [ rdf:type owl:Class ;
+                       owl:unionOf ( :Module
+                                     :ModulePackage
+                                     :PortDefinition
+                                   )
+                     ] ;
+         rdfs:range :Port .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasPortDefinition
+:hasPortDefinition rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Port ;
+                   rdfs:range :PortDefinition .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasSourceInteractionFlowElement
+:hasSourceInteractionFlowElement rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :InteractionFlow ;
+                                 rdfs:range :InteractionFlowElement ;
+                                 owl:propertyDisjointWith :hasTargetInteractionFlowElement .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasSourceParameter
+:hasSourceParameter rdf:type owl:ObjectProperty ;
+                    rdfs:domain :ParameterBinding ;
+                    rdfs:range :Parameter ;
+                    owl:propertyDisjointWith :hasTargetParameter .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasSubViewComponentPart
+:hasSubViewComponentPart rdf:type owl:ObjectProperty ;
+                         rdfs:domain :ViewComponentPart ;
+                         rdfs:range :ViewComponentPart .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasTargetInteractionFlowElement
+:hasTargetInteractionFlowElement rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :InteractionFlow ;
+                                 rdfs:range :InteractionFlowElement .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasTargetParameter
+:hasTargetParameter rdf:type owl:ObjectProperty ;
+                    rdfs:domain :ParameterBinding ;
+                    rdfs:range :Parameter .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasViewComponentPart
+:hasViewComponentPart rdf:type owl:ObjectProperty ;
+                      rdfs:domain :ViewComponent ;
+                      rdfs:range :ViewComponentPart .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasViewContainer
+:hasViewContainer rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Action ;
+                  rdfs:range :ViewContainer .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasViewElementEvent
+:hasViewElementEvent rdf:type owl:ObjectProperty ;
+                     rdfs:domain :ViewComponentPart ;
+                     rdfs:range :ViewElementEvent .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasViewPoint
+:hasViewPoint rdf:type owl:ObjectProperty ;
+              rdfs:domain :IFMLModel ;
+              rdfs:range :ViewPoint .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasVisualizationAttribute
+:hasVisualizationAttribute rdf:type owl:ObjectProperty ;
+                           rdfs:domain [ rdf:type owl:Class ;
+                                         owl:unionOf ( :DataBinding
+                                                       :FeatureConcept
+                                                     )
+                                       ] ;
+                           rdfs:range :VisualizationAttribute .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#body
+:body rdf:type owl:DatatypeProperty ,
+               owl:FunctionalProperty ;
+      rdfs:domain :Expression ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#id
+:id rdf:type owl:DatatypeProperty ,
+             owl:FunctionalProperty ;
+    rdfs:domain :Element ;
+    rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#isDefault
+:isDefault rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :ViewContainer ;
+           rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#isLandmark
+:isLandmark rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :ViewContainer ;
+            rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#isModal
+:isModal rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:domain :Window ;
+         rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#isMultiSelection
+:isMultiSelection rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain :SelectionField ;
+                  rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#isNewWindow
+:isNewWindow rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:domain :Window ;
+             rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#isXOR
+:isXOR rdf:type owl:DatatypeProperty ,
+                owl:FunctionalProperty ;
+       rdfs:domain :ViewContainer ;
+       rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#language
+:language rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain :Expression ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#name
+:name rdf:type owl:DatatypeProperty ,
+               owl:FunctionalProperty ;
+      rdfs:domain :NamedElement ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#text
+:text rdf:type owl:DatatypeProperty ,
+               owl:FunctionalProperty ;
+      rdfs:domain :Annotation ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#uniformResourceIdentifier
+:uniformResourceIdentifier rdf:type owl:DatatypeProperty ,
+                                    owl:FunctionalProperty ;
+                           rdfs:domain :ContentBinding ;
+                           rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Action
+:Action rdf:type owl:Class ;
+        rdfs:subClassOf :InteractionFlowElement ,
+                        :NamedElement ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasActionEvent ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Annotation
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasDynamicBehavior ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :DynamicBehavior
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasViewContainer ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :ViewContainer
+                        ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ActionEvent
+:ActionEvent rdf:type owl:Class ;
+             rdfs:subClassOf :CatchingEvent .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ActivationExpression
+:ActivationExpression rdf:type owl:Class ;
+                      rdfs:subClassOf :BooleanExpression .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ActivityConcept
+:ActivityConcept rdf:type owl:Class ;
+                 rdfs:subClassOf :NamedElement ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasModuleDefinition ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :ModuleDefinition
+                                 ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Annotation
+:Annotation rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :text ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#BPMNActivityConcept
+:BPMNActivityConcept rdf:type owl:Class ;
+                     rdfs:subClassOf :ActivityConcept .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#BehaviorConcept
+:BehaviorConcept rdf:type owl:Class ;
+                 rdfs:subClassOf :DomainElement ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasDynamicBehavior ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :DynamicBehavior
+                                 ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#BehavioralFeatureConcept
+:BehavioralFeatureConcept rdf:type owl:Class ;
+                          rdfs:subClassOf :DomainElement ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :hasDynamicBehavior ;
+                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass :DynamicBehavior
+                                          ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#BooleanExpression
+:BooleanExpression rdf:type owl:Class ;
+                   rdfs:subClassOf :Expression .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#CatchingEvent
+:CatchingEvent rdf:type owl:Class ;
+               rdfs:subClassOf :Event .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ConditionalExpression
+:ConditionalExpression rdf:type owl:Class ;
+                       rdfs:subClassOf :Expression ,
+                                       :ViewComponentPart .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Constraint
+:Constraint rdf:type owl:Class ;
+            rdfs:subClassOf :BooleanExpression .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ContentBinding
+:ContentBinding rdf:type owl:Class ;
+                rdfs:subClassOf :ViewComponentPart ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :uniformResourceIdentifier ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:string
+                                ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Context
+:Context rdf:type owl:Class ;
+         rdfs:subClassOf :Element ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasContextDimension ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Annotation
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasContextVariable ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Annotation
+                         ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ContextDimension
+:ContextDimension rdf:type owl:Class ;
+                  rdfs:subClassOf :NamedElement ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasContext ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :Context
+                                  ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ContextVariable
+:ContextVariable rdf:type owl:Class ;
+                 rdfs:subClassOf :NamedElement ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasContext ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :Context
+                                 ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#DataBinding
+:DataBinding rdf:type owl:Class ;
+             rdfs:subClassOf :ContentBinding ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasConditionalExpression ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :ConditionalExpression
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasDataContextVariable ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :DataContextVariable
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasVisualizationAttribute ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :VisualizationAttribute
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasDomainConcept ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :DomainConcept
+                             ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#DataContextVariable
+:DataContextVariable rdf:type owl:Class ;
+                     rdfs:subClassOf :ContextVariable ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasDataBinding ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :DataBinding
+                                     ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#DataFlow
+:DataFlow rdf:type owl:Class ;
+          rdfs:subClassOf :InteractionFlow .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Details
+:Details rdf:type owl:Class ;
+         rdfs:subClassOf :ViewComponent .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Device
+:Device rdf:type owl:Class ;
+        rdfs:subClassOf :ContextDimension .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#DomainConcept
+:DomainConcept rdf:type owl:Class ;
+               rdfs:subClassOf :DomainElement ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasDataBinding ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :DataBinding
+                               ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#DomainElement
+:DomainElement rdf:type owl:Class ;
+               rdfs:subClassOf :NamedElement ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasDomainModel ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :DomainModel
+                               ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#DomainModel
+:DomainModel rdf:type owl:Class ;
+             rdfs:subClassOf :NamedElement ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasDomainElement ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :DomainElement
+                             ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#DynamicBehavior
+:DynamicBehavior rdf:type owl:Class ;
+                 rdfs:subClassOf :ContentBinding ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasAction ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :Action
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasBehaviorConcept ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :BehaviorConcept
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasBehavioralFeatureConcept ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :BehavioralFeatureConcept
+                                 ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Element
+:Element rdf:type owl:Class ;
+         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasAnnotation ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Annotation
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasConstraint ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Constraint
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :id ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Event
+:Event rdf:type owl:Class ;
+       rdfs:subClassOf :InteractionFlowElement ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasActivationExpression ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass :ActivationExpression
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasInteractionFlowExpression ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass :InteractionFlowExpression
+                       ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Expression
+:Expression rdf:type owl:Class ;
+            rdfs:subClassOf :InteractionFlowModelElement ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :body ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :language ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#FeatureConcept
+:FeatureConcept rdf:type owl:Class ;
+                rdfs:subClassOf :DomainElement ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasVisualizationAttribute ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :VisualizationAttribute
+                                ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Field
+:Field rdf:type owl:Class ;
+       rdfs:subClassOf :Parameter ,
+                       :ViewComponentPart .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Form
+:Form rdf:type owl:Class ;
+      rdfs:subClassOf :ViewComponent .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#IFMLModel
+:IFMLModel rdf:type owl:Class ;
+           rdfs:subClassOf :NamedElement ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasViewPoint ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass :ViewPoint
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasDomainModel ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :DomainModel
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasInteractionFlowModel ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :InteractionFlowModel
+                           ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#InteractionFlow
+:InteractionFlow rdf:type owl:Class ;
+                 rdfs:subClassOf :InteractionFlowModelElement ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasSourceInteractionFlowElement ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :InteractionFlowElement
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasTargetInteractionFlowElement ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :InteractionFlowElement
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasParameterBindingGroup ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :ParameterBindingGroup
+                                 ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#InteractionFlowElement
+:InteractionFlowElement rdf:type owl:Class ;
+                        rdfs:subClassOf :InteractionFlowModelElement ,
+                                        :NamedElement ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasInInteractionFlow ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass :InteractionFlow
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasOutInteractionFlow ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass :InteractionFlow
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasParameters ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass :Parameter
+                                        ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#InteractionFlowExpression
+:InteractionFlowExpression rdf:type owl:Class ;
+                           rdfs:subClassOf :Expression ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasInteractionFlow ;
+                                             owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                             owl:onClass :InteractionFlow
+                                           ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#InteractionFlowModel
+:InteractionFlowModel rdf:type owl:Class ;
+                      rdfs:subClassOf :NamedElement ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :hasInteractionFlowModelElement ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :InteractionFlowModelElement
+                                      ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#InteractionFlowModelElement
+:InteractionFlowModelElement rdf:type owl:Class ;
+                             rdfs:subClassOf :Element .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#JumpEvent
+:JumpEvent rdf:type owl:Class ;
+           rdfs:subClassOf :ThrowingEvent .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#LandingEvent
+:LandingEvent rdf:type owl:Class ;
+              rdfs:subClassOf :CatchingEvent .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#List
+:List rdf:type owl:Class ;
+      rdfs:subClassOf :ViewComponent .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Menu
+:Menu rdf:type owl:Class ;
+      rdfs:subClassOf :ViewContainer .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ModularizationElement
+:ModularizationElement rdf:type owl:Class ;
+                       rdfs:subClassOf :InteractionFlowModelElement ,
+                                       :NamedElement ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasModulePackage ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :InteractionFlowModelElement
+                                       ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Module
+:Module rdf:type owl:Class ;
+        rdfs:subClassOf :InteractionFlowModelElement ,
+                        :NamedElement ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasPort ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Port
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasModuleDefinition ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :ModuleDefinition
+                        ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ModuleDefinition
+:ModuleDefinition rdf:type owl:Class ;
+                  rdfs:subClassOf :ModularizationElement ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasInputPort ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :PortDefinition
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasInteractionFlowModelElement ;
+                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :InteractionFlowModelElement
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasModule ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :Module
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasOutputPort ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :PortDefinition
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasActivityConcept ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :ActivityConcept
+                                  ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ModulePackage
+:ModulePackage rdf:type owl:Class ;
+               rdfs:subClassOf :ModularizationElement ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasModularizationElement ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ModularizationElement
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasPort ;
+                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :Port
+                               ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#NamedElement
+:NamedElement rdf:type owl:Class ;
+              rdfs:subClassOf :Element ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :name ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:string
+                              ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#NavigationFlow
+:NavigationFlow rdf:type owl:Class ;
+                rdfs:subClassOf :InteractionFlow .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#OnLoadEvent
+:OnLoadEvent rdf:type owl:Class ;
+             rdfs:subClassOf :SystemEvent .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#OnSelectEvent
+:OnSelectEvent rdf:type owl:Class ;
+               rdfs:subClassOf :ViewElementEvent .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#OnSubmitEvent
+:OnSubmitEvent rdf:type owl:Class ;
+               rdfs:subClassOf :ViewElementEvent .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Parameter
+:Parameter rdf:type owl:Class ;
+           rdfs:subClassOf :InteractionFlowModelElement ,
+                           :NamedElement .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ParameterBinding
+:ParameterBinding rdf:type owl:Class ;
+                  rdfs:subClassOf :InteractionFlowModelElement ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasSourceParameter ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :Parameter
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasTargetParameter ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :Parameter
+                                  ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ParameterBindingGroup
+:ParameterBindingGroup rdf:type owl:Class ;
+                       rdfs:subClassOf :InteractionFlowModelElement ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasParameterBinding ;
+                                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :ParameterBinding
+                                       ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Port
+:Port rdf:type owl:Class ;
+      rdfs:subClassOf :InteractionFlowElement ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasModule ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Module
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasPortDefinition ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onClass :PortDefinition
+                      ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#PortDefinition
+:PortDefinition rdf:type owl:Class ;
+                rdfs:subClassOf :InteractionFlowElement ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasPort ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :Port
+                                ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Position
+:Position rdf:type owl:Class ;
+          rdfs:subClassOf :ContextDimension .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#SelectionField
+:SelectionField rdf:type owl:Class ;
+                rdfs:subClassOf :Field ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :isMultiSelection ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:boolean
+                                ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#SetContextEvent
+:SetContextEvent rdf:type owl:Class ;
+                 rdfs:subClassOf :ThrowingEvent .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#SimpleContextVariable
+:SimpleContextVariable rdf:type owl:Class ;
+                       rdfs:subClassOf :ContextVariable .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#SimpleField
+:SimpleField rdf:type owl:Class ;
+             rdfs:subClassOf :Field .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Slot
+:Slot rdf:type owl:Class ;
+      rdfs:subClassOf :Parameter ,
+                      :ViewComponentPart .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#SystemEvent
+:SystemEvent rdf:type owl:Class ;
+             rdfs:subClassOf :CatchingEvent ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasExpression ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Expression
+                             ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ThrowingEvent
+:ThrowingEvent rdf:type owl:Class ;
+               rdfs:subClassOf :Event .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#UMLBehavior
+:UMLBehavior rdf:type owl:Class ;
+             rdfs:subClassOf :BehaviorConcept .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#UMLBehavioralFeature
+:UMLBehavioralFeature rdf:type owl:Class ;
+                      rdfs:subClassOf :BehavioralFeatureConcept .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#UMLDomainConcept
+:UMLDomainConcept rdf:type owl:Class ;
+                  rdfs:subClassOf :DomainConcept .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#UMLStructuralFeature
+:UMLStructuralFeature rdf:type owl:Class ;
+                      rdfs:subClassOf :FeatureConcept .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#UserRole
+:UserRole rdf:type owl:Class ;
+          rdfs:subClassOf :ContextDimension .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ValidationRule
+:ValidationRule rdf:type owl:Class ;
+                rdfs:subClassOf :Constraint .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ViewComponent
+:ViewComponent rdf:type owl:Class ;
+               rdfs:subClassOf :ViewElement ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasViewComponentPart ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ViewComponentPart
+                               ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ViewComponentPart
+:ViewComponentPart rdf:type owl:Class ;
+                   rdfs:subClassOf :InteractionFlowElement ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasSubViewComponentPart ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :ViewComponentPart
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasViewElementEvent ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :ViewElementEvent
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasParentViewComponentPart ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :ViewComponentPart
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasActivationExpression ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :ActivationExpression
+                                   ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ViewContainer
+:ViewContainer rdf:type owl:Class ;
+               rdfs:subClassOf :ViewElement ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :isDefault ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:boolean
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :isLandmark ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:boolean
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :isXOR ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:boolean
+                               ] .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ViewElement
+:ViewElement rdf:type owl:Class ;
+             rdfs:subClassOf :InteractionFlowElement .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ViewElementEvent
+:ViewElementEvent rdf:type owl:Class ;
+                  rdfs:subClassOf :CatchingEvent .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ViewPoint
+:ViewPoint rdf:type owl:Class ;
+           rdfs:subClassOf :NamedElement .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#VisualizationAttribute
+:VisualizationAttribute rdf:type owl:Class ;
+                        rdfs:subClassOf :ViewComponentPart .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Window
+:Window rdf:type owl:Class ;
+        rdfs:subClassOf :ViewContainer ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :isModal ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:boolean
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :isNewWindow ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:boolean
+                        ] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
