@@ -14,7 +14,11 @@
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasAction
 :hasAction rdf:type owl:ObjectProperty ;
-           rdfs:domain :DynamicBehavior ;
+           rdfs:domain [ rdf:type owl:Class ;
+                         owl:unionOf ( :DynamicBehavior
+                                       :ViewContainer
+                                     )
+                       ] ;
            rdfs:range :Action .
 
 
@@ -29,6 +33,7 @@
                          rdfs:domain [ rdf:type owl:Class ;
                                        owl:unionOf ( :Event
                                                      :ViewComponentPart
+                                                     :ViewElement
                                                    )
                                      ] ;
                          rdfs:range :ActivationExpression .
@@ -75,6 +80,7 @@
             rdfs:domain [ rdf:type owl:Class ;
                           owl:unionOf ( :ContextDimension
                                         :ContextVariable
+                                        :ViewPoint
                                       )
                         ] ;
             rdfs:range :Context .
@@ -152,6 +158,12 @@
                rdfs:range :Expression .
 
 
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasFeatureConcept
+:hasFeatureConcept rdf:type owl:ObjectProperty ;
+                   rdfs:domain :VisualizationAttribute ;
+                   rdfs:range :FeatureConcept .
+
+
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasInInteractionFlow
 :hasInInteractionFlow rdf:type owl:ObjectProperty ;
                       rdfs:domain :InteractionFlowElement ;
@@ -189,9 +201,22 @@
                                 rdfs:domain [ rdf:type owl:Class ;
                                               owl:unionOf ( :InteractionFlowModel
                                                             :ModuleDefinition
+                                                            :ViewPoint
                                                           )
                                             ] ;
                                 rdfs:range :InteractionFlowModelElement .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasJumpEvent
+:hasJumpEvent rdf:type owl:ObjectProperty ;
+              rdfs:domain :LandingEvent ;
+              rdfs:range :JumpEvent .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasLandingEvent
+:hasLandingEvent rdf:type owl:ObjectProperty ;
+                 rdfs:domain :JumpEvent ;
+                 rdfs:range :LandingEvent .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasModularizationElement
@@ -280,6 +305,12 @@
                    rdfs:range :PortDefinition .
 
 
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasSelectEvent
+:hasSelectEvent rdf:type owl:ObjectProperty ;
+                rdfs:domain :List ;
+                rdfs:range :OnSelectEvent .
+
+
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasSourceInteractionFlowElement
 :hasSourceInteractionFlowElement rdf:type owl:ObjectProperty ;
                                  rdfs:domain :InteractionFlow ;
@@ -320,13 +351,31 @@
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasViewContainer
 :hasViewContainer rdf:type owl:ObjectProperty ;
-                  rdfs:domain :Action ;
+                  rdfs:domain [ rdf:type owl:Class ;
+                                owl:unionOf ( :Action
+                                              :ViewElement
+                                            )
+                              ] ;
                   rdfs:range :ViewContainer .
+
+
+###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasViewElement
+:hasViewElement rdf:type owl:ObjectProperty ;
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( :ViewContainer
+                                            :ViewElementEvent
+                                          )
+                            ] ;
+                rdfs:range :ViewElement .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasViewElementEvent
 :hasViewElementEvent rdf:type owl:ObjectProperty ;
-                     rdfs:domain :ViewComponentPart ;
+                     rdfs:domain [ rdf:type owl:Class ;
+                                   owl:unionOf ( :ViewComponentPart
+                                                 :ViewElement
+                                               )
+                                 ] ;
                      rdfs:range :ViewElementEvent .
 
 
@@ -466,7 +515,8 @@
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ActivationExpression
 :ActivationExpression rdf:type owl:Class ;
-                      rdfs:subClassOf :BooleanExpression .
+                      rdfs:subClassOf :BooleanExpression ;
+                      owl:disjointWith :Constraint .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ActivityConcept
@@ -485,7 +535,8 @@
                               owl:onProperty :text ;
                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                               owl:onDataRange xsd:string
-                            ] .
+                            ] ;
+            owl:disjointWith :Element .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#BPMNActivityConcept
@@ -520,13 +571,14 @@
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#CatchingEvent
 :CatchingEvent rdf:type owl:Class ;
-               rdfs:subClassOf :Event .
+               rdfs:subClassOf :Event ;
+               owl:disjointWith :ThrowingEvent .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ConditionalExpression
 :ConditionalExpression rdf:type owl:Class ;
-                       rdfs:subClassOf :Expression ,
-                                       :ViewComponentPart .
+                       rdfs:subClassOf :ContentBinding ,
+                                       :Expression .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Constraint
@@ -611,12 +663,14 @@
                                        owl:onProperty :hasDataBinding ;
                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                        owl:onClass :DataBinding
-                                     ] .
+                                     ] ;
+                     owl:disjointWith :SimpleContextVariable .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#DataFlow
 :DataFlow rdf:type owl:Class ;
-          rdfs:subClassOf :InteractionFlow .
+          rdfs:subClassOf :InteractionFlow ;
+          owl:disjointWith :NavigationFlow .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Details
@@ -837,22 +891,39 @@
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#JumpEvent
 :JumpEvent rdf:type owl:Class ;
-           rdfs:subClassOf :ThrowingEvent .
+           rdfs:subClassOf :ThrowingEvent ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasLandingEvent ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :LandingEvent
+                           ] ;
+           owl:disjointWith :SetContextEvent .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#LandingEvent
 :LandingEvent rdf:type owl:Class ;
-              rdfs:subClassOf :CatchingEvent .
+              rdfs:subClassOf :CatchingEvent ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasJumpEvent ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :JumpEvent
+                              ] .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#List
 :List rdf:type owl:Class ;
-      rdfs:subClassOf :ViewComponent .
+      rdfs:subClassOf :ViewComponent ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasSelectEvent ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onClass :OnSelectEvent
+                      ] .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Menu
 :Menu rdf:type owl:Class ;
-      rdfs:subClassOf :ViewContainer .
+      rdfs:subClassOf :ViewContainer ;
+      owl:disjointWith :Window .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ModularizationElement
@@ -909,7 +980,8 @@
                                     owl:onProperty :hasActivityConcept ;
                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                     owl:onClass :ActivityConcept
-                                  ] .
+                                  ] ;
+                  owl:disjointWith :ModulePackage .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ModulePackage
@@ -949,7 +1021,8 @@
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#OnSelectEvent
 :OnSelectEvent rdf:type owl:Class ;
-               rdfs:subClassOf :ViewElementEvent .
+               rdfs:subClassOf :ViewElementEvent ;
+               owl:disjointWith :OnSubmitEvent .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#OnSubmitEvent
@@ -1025,7 +1098,8 @@
                                   owl:onProperty :isMultiSelection ;
                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                   owl:onDataRange xsd:boolean
-                                ] .
+                                ] ;
+                owl:disjointWith :SimpleField .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#SetContextEvent
@@ -1101,7 +1175,8 @@
                                  owl:onProperty :hasViewComponentPart ;
                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
                                  owl:onClass :ViewComponentPart
-                               ] .
+                               ] ;
+               owl:disjointWith :ViewContainer .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ViewComponentPart
@@ -1133,6 +1208,16 @@
 :ViewContainer rdf:type owl:Class ;
                rdfs:subClassOf :ViewElement ,
                                [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasAction ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :Action
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasViewElement ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ViewElement
+                               ] ,
+                               [ rdf:type owl:Restriction ;
                                  owl:onProperty :isDefault ;
                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                  owl:onDataRange xsd:boolean
@@ -1151,22 +1236,57 @@
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ViewElement
 :ViewElement rdf:type owl:Class ;
-             rdfs:subClassOf :InteractionFlowElement .
+             rdfs:subClassOf :InteractionFlowElement ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasViewElementEvent ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :ViewElementEvent
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasActivationExpression ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :ActivationExpression
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasViewContainer ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :ViewContainer
+                             ] .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ViewElementEvent
 :ViewElementEvent rdf:type owl:Class ;
-                  rdfs:subClassOf :CatchingEvent .
+                  rdfs:subClassOf :CatchingEvent ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasViewElement ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :ViewElement
+                                  ] .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ViewPoint
 :ViewPoint rdf:type owl:Class ;
-           rdfs:subClassOf :NamedElement .
+           rdfs:subClassOf :NamedElement ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasInteractionFlowModelElement ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass :InteractionFlowModelElement
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasContext ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Context
+                           ] .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#VisualizationAttribute
 :VisualizationAttribute rdf:type owl:Class ;
-                        rdfs:subClassOf :ViewComponentPart .
+                        rdfs:subClassOf :ViewComponentPart ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasFeatureConcept ;
+                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass :FeatureConcept
+                                        ] .
 
 
 ###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Window
@@ -1182,6 +1302,123 @@
                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                           owl:onDataRange xsd:boolean
                         ] .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Action
+                :ActivityConcept
+                :ContextDimension
+                :ContextVariable
+                :DomainElement
+                :DomainModel
+                :Event
+                :IFMLModel
+                :InteractionFlowElement
+                :InteractionFlowModel
+                :ModularizationElement
+                :Module
+                :Parameter
+                :Port
+                :PortDefinition
+                :ViewComponentPart
+                :ViewElement
+                :ViewPoint
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ActionEvent
+                :LandingEvent
+                :SystemEvent
+                :ViewElementEvent
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :BehaviorConcept
+                :BehavioralFeatureConcept
+                :DomainConcept
+                :FeatureConcept
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :BooleanExpression
+                :ConditionalExpression
+                :DataBinding
+                :DynamicBehavior
+                :InteractionFlowExpression
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :BooleanExpression
+                :ConditionalExpression
+                :InteractionFlowExpression
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ConditionalExpression
+                :DataBinding
+                :DynamicBehavior
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ContentBinding
+                :Field
+                :Slot
+                :VisualizationAttribute
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Context
+                :InteractionFlowModelElement
+                :NamedElement
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Details
+                :Form
+                :List
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Device
+                :Position
+                :UserRole
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Expression
+                :InteractionFlow
+                :InteractionFlowElement
+                :ModularizationElement
+                :Module
+                :Parameter
+                :ParameterBinding
+                :ParameterBindingGroup
+              )
+] .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
