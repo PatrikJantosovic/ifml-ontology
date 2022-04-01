@@ -1,1424 +1,2087 @@
-@prefix : <http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2> .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://github.com/PatrikJantosovic/ifml-ontology/ifml#"
+     xml:base="https://github.com/PatrikJantosovic/ifml-ontology/ifml"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml"/>
+    
 
-<http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2> rdf:type owl:Ontology .
 
-#################################################################
-#    Object Properties
-#################################################################
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasAction
-:hasAction rdf:type owl:ObjectProperty ;
-           rdfs:domain [ rdf:type owl:Class ;
-                         owl:unionOf ( :DynamicBehavior
-                                       :ViewContainer
-                                     )
-                       ] ;
-           rdfs:range :Action .
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasActionEvent
-:hasActionEvent rdf:type owl:ObjectProperty ;
-                rdfs:domain :Action ;
-                rdfs:range :ActionEvent .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasAction -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasAction">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DynamicBehavior"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewContainer"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Action"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasActivationExpression
-:hasActivationExpression rdf:type owl:ObjectProperty ;
-                         rdfs:domain [ rdf:type owl:Class ;
-                                       owl:unionOf ( :Event
-                                                     :ViewComponentPart
-                                                     :ViewElement
-                                                   )
-                                     ] ;
-                         rdfs:range :ActivationExpression .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasActionEvent -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasActivityConcept
-:hasActivityConcept rdf:type owl:ObjectProperty ;
-                    rdfs:domain :ModuleDefinition ;
-                    rdfs:range :ActivityConcept .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasActionEvent">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Action"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActionEvent"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasAnnotation
-:hasAnnotation rdf:type owl:ObjectProperty ;
-               rdfs:domain :Element ;
-               rdfs:range :Annotation .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasActivationExpression -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasActivationExpression">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Event"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivationExpression"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasBehaviorConcept
-:hasBehaviorConcept rdf:type owl:ObjectProperty ;
-                    rdfs:domain :DynamicBehavior ;
-                    rdfs:range :BehaviorConcept .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasActivityConcept -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasBehavioralFeatureConcept
-:hasBehavioralFeatureConcept rdf:type owl:ObjectProperty ;
-                             rdfs:domain :DynamicBehavior ;
-                             rdfs:range :BehavioralFeatureConcept .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasActivityConcept">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModuleDefinition"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivityConcept"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasConditionalExpression
-:hasConditionalExpression rdf:type owl:ObjectProperty ;
-                          rdfs:domain :DataBinding ;
-                          rdfs:range :ConditionalExpression .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasAnnotation -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasAnnotation">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Element"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Annotation"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasConstraint
-:hasConstraint rdf:type owl:ObjectProperty ;
-               rdfs:domain :Element ;
-               rdfs:range :Constraint .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasBehaviorConcept -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasContext
-:hasContext rdf:type owl:ObjectProperty ;
-            rdfs:domain [ rdf:type owl:Class ;
-                          owl:unionOf ( :ContextDimension
-                                        :ContextVariable
-                                        :ViewPoint
-                                      )
-                        ] ;
-            rdfs:range :Context .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasBehaviorConcept">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DynamicBehavior"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BehaviorConcept"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasContextDimension
-:hasContextDimension rdf:type owl:ObjectProperty ;
-                     rdfs:domain :Context ;
-                     rdfs:range :ContextDimension .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasBehavioralFeatureConcept -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasBehavioralFeatureConcept">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DynamicBehavior"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BehavioralFeatureConcept"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasContextVariable
-:hasContextVariable rdf:type owl:ObjectProperty ;
-                    rdfs:domain :Context ;
-                    rdfs:range :ContextVariable .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasConditionalExpression -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasContextVariableScope
-:hasContextVariableScope rdf:type owl:ObjectProperty ;
-                         rdfs:domain :ContextVariable .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasConditionalExpression">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataBinding"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ConditionalExpression"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasDataBinding
-:hasDataBinding rdf:type owl:ObjectProperty ;
-                rdfs:domain [ rdf:type owl:Class ;
-                              owl:unionOf ( :DataContextVariable
-                                            :DomainConcept
-                                          )
-                            ] ;
-                rdfs:range :DataBinding .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasConstraint -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasConstraint">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Element"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Constraint"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasDataContextVariable
-:hasDataContextVariable rdf:type owl:ObjectProperty ;
-                        rdfs:domain :DataBinding ;
-                        rdfs:range :DataContextVariable .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasContext -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasDomainConcept
-:hasDomainConcept rdf:type owl:ObjectProperty ;
-                  rdfs:domain :DataBinding ;
-                  rdfs:range :DomainConcept .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasContext">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextDimension"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextVariable"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewPoint"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Context"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasDomainElement
-:hasDomainElement rdf:type owl:ObjectProperty ;
-                  rdfs:domain :DomainModel ;
-                  rdfs:range :DomainElement .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasContextDimension -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasContextDimension">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Context"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextDimension"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasDomainModel
-:hasDomainModel rdf:type owl:ObjectProperty ;
-                rdfs:domain [ rdf:type owl:Class ;
-                              owl:unionOf ( :DomainElement
-                                            :IFMLModel
-                                          )
-                            ] ;
-                rdfs:range :DomainModel .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasContextVariable -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasDynamicBehavior
-:hasDynamicBehavior rdf:type owl:ObjectProperty ;
-                    rdfs:domain [ rdf:type owl:Class ;
-                                  owl:unionOf ( :Action
-                                                :BehaviorConcept
-                                                :BehavioralFeatureConcept
-                                              )
-                                ] ;
-                    rdfs:range :DynamicBehavior .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasContextVariable">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Context"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextVariable"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasExpression
-:hasExpression rdf:type owl:ObjectProperty ;
-               rdfs:domain :SystemEvent ;
-               rdfs:range :Expression .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasContextVariableScope -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasContextVariableScope">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextVariable"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasFeatureConcept
-:hasFeatureConcept rdf:type owl:ObjectProperty ;
-                   rdfs:domain :VisualizationAttribute ;
-                   rdfs:range :FeatureConcept .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDataBinding -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasInInteractionFlow
-:hasInInteractionFlow rdf:type owl:ObjectProperty ;
-                      rdfs:domain :InteractionFlowElement ;
-                      rdfs:range :InteractionFlow ;
-                      owl:propertyDisjointWith :hasOutInteractionFlow .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDataBinding">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataContextVariable"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainConcept"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataBinding"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasInputPort
-:hasInputPort rdf:type owl:ObjectProperty ;
-              rdfs:domain :ModuleDefinition ;
-              rdfs:range :PortDefinition ;
-              owl:propertyDisjointWith :hasOutputPort .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDataContextVariable -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDataContextVariable">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataBinding"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataContextVariable"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasInteractionFlow
-:hasInteractionFlow rdf:type owl:ObjectProperty ;
-                    rdfs:domain :InteractionFlowExpression ;
-                    rdfs:range :InteractionFlow .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDomainConcept -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasInteractionFlowExpression
-:hasInteractionFlowExpression rdf:type owl:ObjectProperty ;
-                              rdfs:domain :Event ;
-                              rdfs:range :InteractionFlowExpression .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDomainConcept">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataBinding"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainConcept"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasInteractionFlowModel
-:hasInteractionFlowModel rdf:type owl:ObjectProperty ;
-                         rdfs:domain :IFMLModel ;
-                         rdfs:range :InteractionFlowModel .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDomainElement -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDomainElement">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainModel"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainElement"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasInteractionFlowModelElement
-:hasInteractionFlowModelElement rdf:type owl:ObjectProperty ;
-                                rdfs:domain [ rdf:type owl:Class ;
-                                              owl:unionOf ( :InteractionFlowModel
-                                                            :ModuleDefinition
-                                                            :ViewPoint
-                                                          )
-                                            ] ;
-                                rdfs:range :InteractionFlowModelElement .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDomainModel -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasJumpEvent
-:hasJumpEvent rdf:type owl:ObjectProperty ;
-              rdfs:domain :LandingEvent ;
-              rdfs:range :JumpEvent .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDomainModel">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainElement"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#IFMLModel"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainModel"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasLandingEvent
-:hasLandingEvent rdf:type owl:ObjectProperty ;
-                 rdfs:domain :JumpEvent ;
-                 rdfs:range :LandingEvent .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDynamicBehavior -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDynamicBehavior">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Action"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BehaviorConcept"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BehavioralFeatureConcept"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DynamicBehavior"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasModularizationElement
-:hasModularizationElement rdf:type owl:ObjectProperty ;
-                          rdfs:domain :ModulePackage ;
-                          rdfs:range :ModularizationElement .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasExpression -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasModule
-:hasModule rdf:type owl:ObjectProperty ;
-           rdfs:domain [ rdf:type owl:Class ;
-                         owl:unionOf ( :ModuleDefinition
-                                       :Port
-                                     )
-                       ] ;
-           rdfs:range :Module .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasExpression">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#SystemEvent"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Expression"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasModuleDefinition
-:hasModuleDefinition rdf:type owl:ObjectProperty ;
-                     rdfs:domain [ rdf:type owl:Class ;
-                                   owl:unionOf ( :ActivityConcept
-                                                 :Module
-                                               )
-                                 ] ;
-                     rdfs:range :ModuleDefinition .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasFeatureConcept -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasFeatureConcept">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#VisualizationAttribute"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#FeatureConcept"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasModulePackage
-:hasModulePackage rdf:type owl:ObjectProperty ;
-                  rdfs:domain :ModularizationElement ;
-                  rdfs:range :ModulePackage .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInInteractionFlow -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasOutInteractionFlow
-:hasOutInteractionFlow rdf:type owl:ObjectProperty ;
-                       rdfs:domain :InteractionFlowElement ;
-                       rdfs:range :InteractionFlow .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInInteractionFlow">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow"/>
+        <owl:propertyDisjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasOutInteractionFlow"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasOutputPort
-:hasOutputPort rdf:type owl:ObjectProperty ;
-               rdfs:domain :ModuleDefinition ;
-               rdfs:range :PortDefinition .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInputPort -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInputPort">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModuleDefinition"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#PortDefinition"/>
+        <owl:propertyDisjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasOutputPort"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasParameterBinding
-:hasParameterBinding rdf:type owl:ObjectProperty ;
-                     rdfs:domain :ParameterBindingGroup ;
-                     rdfs:range :ParameterBinding .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlow -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasParameterBindingGroup
-:hasParameterBindingGroup rdf:type owl:ObjectProperty ;
-                          rdfs:domain :InteractionFlow ;
-                          rdfs:range :ParameterBindingGroup .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlow">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowExpression"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasParameters
-:hasParameters rdf:type owl:ObjectProperty ;
-               rdfs:domain :InteractionFlowElement ;
-               rdfs:range :Parameter .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowExpression -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowExpression">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Event"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowExpression"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasParentViewComponentPart
-:hasParentViewComponentPart rdf:type owl:ObjectProperty ;
-                            rdfs:domain :ViewComponentPart ;
-                            rdfs:range :ViewComponentPart ;
-                            owl:propertyDisjointWith :hasSubViewComponentPart .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowModel -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasPort
-:hasPort rdf:type owl:ObjectProperty ;
-         rdfs:domain [ rdf:type owl:Class ;
-                       owl:unionOf ( :Module
-                                     :ModulePackage
-                                     :PortDefinition
-                                   )
-                     ] ;
-         rdfs:range :Port .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowModel">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#IFMLModel"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModel"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasPortDefinition
-:hasPortDefinition rdf:type owl:ObjectProperty ;
-                   rdfs:domain :Port ;
-                   rdfs:range :PortDefinition .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowModelElement -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowModelElement">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModel"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModuleDefinition"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewPoint"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasSelectEvent
-:hasSelectEvent rdf:type owl:ObjectProperty ;
-                rdfs:domain :List ;
-                rdfs:range :OnSelectEvent .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasJumpEvent -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasSourceInteractionFlowElement
-:hasSourceInteractionFlowElement rdf:type owl:ObjectProperty ;
-                                 rdfs:domain :InteractionFlow ;
-                                 rdfs:range :InteractionFlowElement ;
-                                 owl:propertyDisjointWith :hasTargetInteractionFlowElement .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasJumpEvent">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#LandingEvent"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#JumpEvent"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasSourceParameter
-:hasSourceParameter rdf:type owl:ObjectProperty ;
-                    rdfs:domain :ParameterBinding ;
-                    rdfs:range :Parameter ;
-                    owl:propertyDisjointWith :hasTargetParameter .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasLandingEvent -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasLandingEvent">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#JumpEvent"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#LandingEvent"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasSubViewComponentPart
-:hasSubViewComponentPart rdf:type owl:ObjectProperty ;
-                         rdfs:domain :ViewComponentPart ;
-                         rdfs:range :ViewComponentPart .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasModularizationElement -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasTargetInteractionFlowElement
-:hasTargetInteractionFlowElement rdf:type owl:ObjectProperty ;
-                                 rdfs:domain :InteractionFlow ;
-                                 rdfs:range :InteractionFlowElement .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasModularizationElement">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModulePackage"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModularizationElement"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasTargetParameter
-:hasTargetParameter rdf:type owl:ObjectProperty ;
-                    rdfs:domain :ParameterBinding ;
-                    rdfs:range :Parameter .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasModule -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasModule">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModuleDefinition"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Port"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Module"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasViewComponentPart
-:hasViewComponentPart rdf:type owl:ObjectProperty ;
-                      rdfs:domain :ViewComponent ;
-                      rdfs:range :ViewComponentPart .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasModuleDefinition -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasViewContainer
-:hasViewContainer rdf:type owl:ObjectProperty ;
-                  rdfs:domain [ rdf:type owl:Class ;
-                                owl:unionOf ( :Action
-                                              :ViewElement
-                                            )
-                              ] ;
-                  rdfs:range :ViewContainer .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasModuleDefinition">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivityConcept"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Module"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModuleDefinition"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasViewElement
-:hasViewElement rdf:type owl:ObjectProperty ;
-                rdfs:domain [ rdf:type owl:Class ;
-                              owl:unionOf ( :ViewContainer
-                                            :ViewElementEvent
-                                          )
-                            ] ;
-                rdfs:range :ViewElement .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasModulePackage -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasModulePackage">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModularizationElement"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModulePackage"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasViewElementEvent
-:hasViewElementEvent rdf:type owl:ObjectProperty ;
-                     rdfs:domain [ rdf:type owl:Class ;
-                                   owl:unionOf ( :ViewComponentPart
-                                                 :ViewElement
-                                               )
-                                 ] ;
-                     rdfs:range :ViewElementEvent .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasOnSelectEvent -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasViewPoint
-:hasViewPoint rdf:type owl:ObjectProperty ;
-              rdfs:domain :IFMLModel ;
-              rdfs:range :ViewPoint .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasOnSelectEvent">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#List"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#OnSelectEvent"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#hasVisualizationAttribute
-:hasVisualizationAttribute rdf:type owl:ObjectProperty ;
-                           rdfs:domain [ rdf:type owl:Class ;
-                                         owl:unionOf ( :DataBinding
-                                                       :FeatureConcept
-                                                     )
-                                       ] ;
-                           rdfs:range :VisualizationAttribute .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasOutInteractionFlow -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasOutInteractionFlow">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow"/>
+    </owl:ObjectProperty>
+    
 
-#################################################################
-#    Data properties
-#################################################################
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#body
-:body rdf:type owl:DatatypeProperty ,
-               owl:FunctionalProperty ;
-      rdfs:domain :Expression ;
-      rdfs:range xsd:string .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasOutputPort -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasOutputPort">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModuleDefinition"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#PortDefinition"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#id
-:id rdf:type owl:DatatypeProperty ,
-             owl:FunctionalProperty ;
-    rdfs:domain :Element ;
-    rdfs:range xsd:string .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameterBinding -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#isDefault
-:isDefault rdf:type owl:DatatypeProperty ,
-                    owl:FunctionalProperty ;
-           rdfs:domain :ViewContainer ;
-           rdfs:range xsd:boolean .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameterBinding">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBindingGroup"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBinding"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#isLandmark
-:isLandmark rdf:type owl:DatatypeProperty ,
-                     owl:FunctionalProperty ;
-            rdfs:domain :ViewContainer ;
-            rdfs:range xsd:boolean .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameterBindingGroup -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameterBindingGroup">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBindingGroup"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#isModal
-:isModal rdf:type owl:DatatypeProperty ,
-                  owl:FunctionalProperty ;
-         rdfs:domain :Window ;
-         rdfs:range xsd:boolean .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameters -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#isMultiSelection
-:isMultiSelection rdf:type owl:DatatypeProperty ,
-                           owl:FunctionalProperty ;
-                  rdfs:domain :SelectionField ;
-                  rdfs:range xsd:boolean .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameters">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#isNewWindow
-:isNewWindow rdf:type owl:DatatypeProperty ,
-                      owl:FunctionalProperty ;
-             rdfs:domain :Window ;
-             rdfs:range xsd:boolean .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParentViewComponentPart -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParentViewComponentPart">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
+        <owl:propertyDisjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasSubViewComponentPart"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#isXOR
-:isXOR rdf:type owl:DatatypeProperty ,
-                owl:FunctionalProperty ;
-       rdfs:domain :ViewContainer ;
-       rdfs:range xsd:boolean .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasPort -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#language
-:language rdf:type owl:DatatypeProperty ,
-                   owl:FunctionalProperty ;
-          rdfs:domain :Expression ;
-          rdfs:range xsd:string .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasPort">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Module"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModulePackage"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#PortDefinition"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Port"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#name
-:name rdf:type owl:DatatypeProperty ,
-               owl:FunctionalProperty ;
-      rdfs:domain :NamedElement ;
-      rdfs:range xsd:string .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasPortDefinition -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasPortDefinition">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Port"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#PortDefinition"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#text
-:text rdf:type owl:DatatypeProperty ,
-               owl:FunctionalProperty ;
-      rdfs:domain :Annotation ;
-      rdfs:range xsd:string .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasSourceInteractionFlowElement -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#uniformResourceIdentifier
-:uniformResourceIdentifier rdf:type owl:DatatypeProperty ,
-                                    owl:FunctionalProperty ;
-                           rdfs:domain :ContentBinding ;
-                           rdfs:range xsd:string .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasSourceInteractionFlowElement">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+        <owl:propertyDisjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasTargetInteractionFlowElement"/>
+    </owl:ObjectProperty>
+    
 
 
-#################################################################
-#    Classes
-#################################################################
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasSourceParameter -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Action
-:Action rdf:type owl:Class ;
-        rdfs:subClassOf :InteractionFlowElement ,
-                        :NamedElement ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :hasActionEvent ;
-                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                          owl:onClass :Annotation
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :hasDynamicBehavior ;
-                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                          owl:onClass :DynamicBehavior
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :hasViewContainer ;
-                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                          owl:onClass :ViewContainer
-                        ] .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasSourceParameter">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBinding"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
+        <owl:propertyDisjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasTargetParameter"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ActionEvent
-:ActionEvent rdf:type owl:Class ;
-             rdfs:subClassOf :CatchingEvent .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasSubViewComponentPart -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasSubViewComponentPart">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ActivationExpression
-:ActivationExpression rdf:type owl:Class ;
-                      rdfs:subClassOf :BooleanExpression ;
-                      owl:disjointWith :Constraint .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasTargetInteractionFlowElement -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ActivityConcept
-:ActivityConcept rdf:type owl:Class ;
-                 rdfs:subClassOf :NamedElement ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasModuleDefinition ;
-                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass :ModuleDefinition
-                                 ] .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasTargetInteractionFlowElement">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Annotation
-:Annotation rdf:type owl:Class ;
-            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                              owl:onProperty :text ;
-                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                              owl:onDataRange xsd:string
-                            ] ;
-            owl:disjointWith :Element .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasTargetParameter -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasTargetParameter">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBinding"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#BPMNActivityConcept
-:BPMNActivityConcept rdf:type owl:Class ;
-                     rdfs:subClassOf :ActivityConcept .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewComponentPart -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#BehaviorConcept
-:BehaviorConcept rdf:type owl:Class ;
-                 rdfs:subClassOf :DomainElement ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasDynamicBehavior ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass :DynamicBehavior
-                                 ] .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewComponentPart">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponent"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#BehavioralFeatureConcept
-:BehavioralFeatureConcept rdf:type owl:Class ;
-                          rdfs:subClassOf :DomainElement ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty :hasDynamicBehavior ;
-                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                            owl:onClass :DynamicBehavior
-                                          ] .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewContainer -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewContainer">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Action"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewContainer"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#BooleanExpression
-:BooleanExpression rdf:type owl:Class ;
-                   rdfs:subClassOf :Expression .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewElement -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#CatchingEvent
-:CatchingEvent rdf:type owl:Class ;
-               rdfs:subClassOf :Event ;
-               owl:disjointWith :ThrowingEvent .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewElement">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewContainer"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElementEvent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElement"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ConditionalExpression
-:ConditionalExpression rdf:type owl:Class ;
-                       rdfs:subClassOf :ContentBinding ,
-                                       :Expression .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewElementEvent -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewElementEvent">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElementEvent"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Constraint
-:Constraint rdf:type owl:Class ;
-            rdfs:subClassOf :BooleanExpression .
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewPoint -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ContentBinding
-:ContentBinding rdf:type owl:Class ;
-                rdfs:subClassOf :ViewComponentPart ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :uniformResourceIdentifier ;
-                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onDataRange xsd:string
-                                ] .
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewPoint">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#IFMLModel"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewPoint"/>
+    </owl:ObjectProperty>
+    
 
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Context
-:Context rdf:type owl:Class ;
-         rdfs:subClassOf :Element ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasContextDimension ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onClass :Annotation
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasContextVariable ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onClass :Annotation
-                         ] .
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasVisualizationAttribute -->
 
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasVisualizationAttribute">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataBinding"/>
+                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#FeatureConcept"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#VisualizationAttribute"/>
+    </owl:ObjectProperty>
+    
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ContextDimension
-:ContextDimension rdf:type owl:Class ;
-                  rdfs:subClassOf :NamedElement ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :hasContext ;
-                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass :Context
-                                  ] .
 
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ContextVariable
-:ContextVariable rdf:type owl:Class ;
-                 rdfs:subClassOf :NamedElement ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasContext ;
-                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass :Context
-                                 ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#DataBinding
-:DataBinding rdf:type owl:Class ;
-             rdfs:subClassOf :ContentBinding ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :hasConditionalExpression ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onClass :ConditionalExpression
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :hasDataContextVariable ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onClass :DataContextVariable
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :hasVisualizationAttribute ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onClass :VisualizationAttribute
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :hasDomainConcept ;
-                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass :DomainConcept
-                             ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#DataContextVariable
-:DataContextVariable rdf:type owl:Class ;
-                     rdfs:subClassOf :ContextVariable ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :hasDataBinding ;
-                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass :DataBinding
-                                     ] ;
-                     owl:disjointWith :SimpleContextVariable .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#DataFlow
-:DataFlow rdf:type owl:Class ;
-          rdfs:subClassOf :InteractionFlow ;
-          owl:disjointWith :NavigationFlow .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Details
-:Details rdf:type owl:Class ;
-         rdfs:subClassOf :ViewComponent .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Device
-:Device rdf:type owl:Class ;
-        rdfs:subClassOf :ContextDimension .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#DomainConcept
-:DomainConcept rdf:type owl:Class ;
-               rdfs:subClassOf :DomainElement ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :hasDataBinding ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :DataBinding
-                               ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#DomainElement
-:DomainElement rdf:type owl:Class ;
-               rdfs:subClassOf :NamedElement ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :hasDomainModel ;
-                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :DomainModel
-                               ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#DomainModel
-:DomainModel rdf:type owl:Class ;
-             rdfs:subClassOf :NamedElement ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :hasDomainElement ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onClass :DomainElement
-                             ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#DynamicBehavior
-:DynamicBehavior rdf:type owl:Class ;
-                 rdfs:subClassOf :ContentBinding ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasAction ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass :Action
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasBehaviorConcept ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass :BehaviorConcept
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasBehavioralFeatureConcept ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass :BehavioralFeatureConcept
-                                 ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Element
-:Element rdf:type owl:Class ;
-         rdfs:subClassOf [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasAnnotation ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onClass :Annotation
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :hasConstraint ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onClass :Constraint
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :id ;
-                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onDataRange xsd:string
-                         ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Event
-:Event rdf:type owl:Class ;
-       rdfs:subClassOf :InteractionFlowElement ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasActivationExpression ;
-                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass :ActivationExpression
-                       ] ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasInteractionFlowExpression ;
-                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass :InteractionFlowExpression
-                       ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Expression
-:Expression rdf:type owl:Class ;
-            rdfs:subClassOf :InteractionFlowModelElement ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :body ;
-                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                              owl:onDataRange xsd:string
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :language ;
-                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                              owl:onDataRange xsd:string
-                            ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#FeatureConcept
-:FeatureConcept rdf:type owl:Class ;
-                rdfs:subClassOf :DomainElement ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :hasVisualizationAttribute ;
-                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass :VisualizationAttribute
-                                ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Field
-:Field rdf:type owl:Class ;
-       rdfs:subClassOf :Parameter ,
-                       :ViewComponentPart .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Form
-:Form rdf:type owl:Class ;
-      rdfs:subClassOf :ViewComponent .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#IFMLModel
-:IFMLModel rdf:type owl:Class ;
-           rdfs:subClassOf :NamedElement ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasViewPoint ;
-                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onClass :ViewPoint
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasDomainModel ;
-                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onClass :DomainModel
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasInteractionFlowModel ;
-                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onClass :InteractionFlowModel
-                           ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#InteractionFlow
-:InteractionFlow rdf:type owl:Class ;
-                 rdfs:subClassOf :InteractionFlowModelElement ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasSourceInteractionFlowElement ;
-                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass :InteractionFlowElement
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasTargetInteractionFlowElement ;
-                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass :InteractionFlowElement
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasParameterBindingGroup ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass :ParameterBindingGroup
-                                 ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#InteractionFlowElement
-:InteractionFlowElement rdf:type owl:Class ;
-                        rdfs:subClassOf :InteractionFlowModelElement ,
-                                        :NamedElement ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :hasInInteractionFlow ;
-                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                          owl:onClass :InteractionFlow
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :hasOutInteractionFlow ;
-                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                          owl:onClass :InteractionFlow
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :hasParameters ;
-                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                          owl:onClass :Parameter
-                                        ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#InteractionFlowExpression
-:InteractionFlowExpression rdf:type owl:Class ;
-                           rdfs:subClassOf :Expression ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty :hasInteractionFlow ;
-                                             owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
-                                             owl:onClass :InteractionFlow
-                                           ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#InteractionFlowModel
-:InteractionFlowModel rdf:type owl:Class ;
-                      rdfs:subClassOf :NamedElement ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty :hasInteractionFlowModelElement ;
-                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                        owl:onClass :InteractionFlowModelElement
-                                      ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#InteractionFlowModelElement
-:InteractionFlowModelElement rdf:type owl:Class ;
-                             rdfs:subClassOf :Element .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#JumpEvent
-:JumpEvent rdf:type owl:Class ;
-           rdfs:subClassOf :ThrowingEvent ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasLandingEvent ;
-                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onClass :LandingEvent
-                           ] ;
-           owl:disjointWith :SetContextEvent .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#LandingEvent
-:LandingEvent rdf:type owl:Class ;
-              rdfs:subClassOf :CatchingEvent ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :hasJumpEvent ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass :JumpEvent
-                              ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#List
-:List rdf:type owl:Class ;
-      rdfs:subClassOf :ViewComponent ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :hasSelectEvent ;
-                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                        owl:onClass :OnSelectEvent
-                      ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Menu
-:Menu rdf:type owl:Class ;
-      rdfs:subClassOf :ViewContainer ;
-      owl:disjointWith :Window .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ModularizationElement
-:ModularizationElement rdf:type owl:Class ;
-                       rdfs:subClassOf :InteractionFlowModelElement ,
-                                       :NamedElement ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty :hasModulePackage ;
-                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                         owl:onClass :InteractionFlowModelElement
-                                       ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Module
-:Module rdf:type owl:Class ;
-        rdfs:subClassOf :InteractionFlowModelElement ,
-                        :NamedElement ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :hasPort ;
-                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                          owl:onClass :Port
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :hasModuleDefinition ;
-                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                          owl:onClass :ModuleDefinition
-                        ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ModuleDefinition
-:ModuleDefinition rdf:type owl:Class ;
-                  rdfs:subClassOf :ModularizationElement ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :hasInputPort ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass :PortDefinition
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :hasInteractionFlowModelElement ;
-                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass :InteractionFlowModelElement
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :hasModule ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass :Module
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :hasOutputPort ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass :PortDefinition
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :hasActivityConcept ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass :ActivityConcept
-                                  ] ;
-                  owl:disjointWith :ModulePackage .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ModulePackage
-:ModulePackage rdf:type owl:Class ;
-               rdfs:subClassOf :ModularizationElement ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :hasModularizationElement ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :ModularizationElement
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :hasPort ;
-                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :Port
-                               ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#NamedElement
-:NamedElement rdf:type owl:Class ;
-              rdfs:subClassOf :Element ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :name ;
-                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onDataRange xsd:string
-                              ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#NavigationFlow
-:NavigationFlow rdf:type owl:Class ;
-                rdfs:subClassOf :InteractionFlow .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#OnLoadEvent
-:OnLoadEvent rdf:type owl:Class ;
-             rdfs:subClassOf :SystemEvent .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#OnSelectEvent
-:OnSelectEvent rdf:type owl:Class ;
-               rdfs:subClassOf :ViewElementEvent ;
-               owl:disjointWith :OnSubmitEvent .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#OnSubmitEvent
-:OnSubmitEvent rdf:type owl:Class ;
-               rdfs:subClassOf :ViewElementEvent .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Parameter
-:Parameter rdf:type owl:Class ;
-           rdfs:subClassOf :InteractionFlowModelElement ,
-                           :NamedElement .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ParameterBinding
-:ParameterBinding rdf:type owl:Class ;
-                  rdfs:subClassOf :InteractionFlowModelElement ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :hasSourceParameter ;
-                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass :Parameter
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :hasTargetParameter ;
-                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass :Parameter
-                                  ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ParameterBindingGroup
-:ParameterBindingGroup rdf:type owl:Class ;
-                       rdfs:subClassOf :InteractionFlowModelElement ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty :hasParameterBinding ;
-                                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                         owl:onClass :ParameterBinding
-                                       ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Port
-:Port rdf:type owl:Class ;
-      rdfs:subClassOf :InteractionFlowElement ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :hasModule ;
-                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Module
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :hasPortDefinition ;
-                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :PortDefinition
-                      ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#PortDefinition
-:PortDefinition rdf:type owl:Class ;
-                rdfs:subClassOf :InteractionFlowElement ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :hasPort ;
-                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                  owl:onClass :Port
-                                ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Position
-:Position rdf:type owl:Class ;
-          rdfs:subClassOf :ContextDimension .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#SelectionField
-:SelectionField rdf:type owl:Class ;
-                rdfs:subClassOf :Field ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :isMultiSelection ;
-                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onDataRange xsd:boolean
-                                ] ;
-                owl:disjointWith :SimpleField .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#SetContextEvent
-:SetContextEvent rdf:type owl:Class ;
-                 rdfs:subClassOf :ThrowingEvent .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#SimpleContextVariable
-:SimpleContextVariable rdf:type owl:Class ;
-                       rdfs:subClassOf :ContextVariable .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#SimpleField
-:SimpleField rdf:type owl:Class ;
-             rdfs:subClassOf :Field .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Slot
-:Slot rdf:type owl:Class ;
-      rdfs:subClassOf :Parameter ,
-                      :ViewComponentPart .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#SystemEvent
-:SystemEvent rdf:type owl:Class ;
-             rdfs:subClassOf :CatchingEvent ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :hasExpression ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onClass :Expression
-                             ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ThrowingEvent
-:ThrowingEvent rdf:type owl:Class ;
-               rdfs:subClassOf :Event .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#UMLBehavior
-:UMLBehavior rdf:type owl:Class ;
-             rdfs:subClassOf :BehaviorConcept .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#UMLBehavioralFeature
-:UMLBehavioralFeature rdf:type owl:Class ;
-                      rdfs:subClassOf :BehavioralFeatureConcept .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#UMLDomainConcept
-:UMLDomainConcept rdf:type owl:Class ;
-                  rdfs:subClassOf :DomainConcept .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#UMLStructuralFeature
-:UMLStructuralFeature rdf:type owl:Class ;
-                      rdfs:subClassOf :FeatureConcept .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#UserRole
-:UserRole rdf:type owl:Class ;
-          rdfs:subClassOf :ContextDimension .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ValidationRule
-:ValidationRule rdf:type owl:Class ;
-                rdfs:subClassOf :Constraint .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ViewComponent
-:ViewComponent rdf:type owl:Class ;
-               rdfs:subClassOf :ViewElement ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :hasViewComponentPart ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :ViewComponentPart
-                               ] ;
-               owl:disjointWith :ViewContainer .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ViewComponentPart
-:ViewComponentPart rdf:type owl:Class ;
-                   rdfs:subClassOf :InteractionFlowElement ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :hasSubViewComponentPart ;
-                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :ViewComponentPart
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :hasViewElementEvent ;
-                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :ViewElementEvent
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :hasParentViewComponentPart ;
-                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :ViewComponentPart
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :hasActivationExpression ;
-                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :ActivationExpression
-                                   ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ViewContainer
-:ViewContainer rdf:type owl:Class ;
-               rdfs:subClassOf :ViewElement ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :hasAction ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :Action
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :hasViewElement ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :ViewElement
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :isDefault ;
-                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:boolean
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :isLandmark ;
-                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:boolean
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :isXOR ;
-                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:boolean
-                               ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ViewElement
-:ViewElement rdf:type owl:Class ;
-             rdfs:subClassOf :InteractionFlowElement ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :hasViewElementEvent ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onClass :ViewElementEvent
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :hasActivationExpression ;
-                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass :ActivationExpression
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :hasViewContainer ;
-                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass :ViewContainer
-                             ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ViewElementEvent
-:ViewElementEvent rdf:type owl:Class ;
-                  rdfs:subClassOf :CatchingEvent ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :hasViewElement ;
-                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass :ViewElement
-                                  ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#ViewPoint
-:ViewPoint rdf:type owl:Class ;
-           rdfs:subClassOf :NamedElement ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasInteractionFlowModelElement ;
-                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onClass :InteractionFlowModelElement
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :hasContext ;
-                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onClass :Context
-                           ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#VisualizationAttribute
-:VisualizationAttribute rdf:type owl:Class ;
-                        rdfs:subClassOf :ViewComponentPart ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :hasFeatureConcept ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass :FeatureConcept
-                                        ] .
-
-
-###  http://www.semanticweb.org/jantosovic/ontologies/2021/11/untitled-ontology-2#Window
-:Window rdf:type owl:Class ;
-        rdfs:subClassOf :ViewContainer ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :isModal ;
-                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                          owl:onDataRange xsd:boolean
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :isNewWindow ;
-                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                          owl:onDataRange xsd:boolean
-                        ] .
-
-
-#################################################################
-#    General axioms
-#################################################################
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Action
-                :ActivityConcept
-                :ContextDimension
-                :ContextVariable
-                :DomainElement
-                :DomainModel
-                :Event
-                :IFMLModel
-                :InteractionFlowElement
-                :InteractionFlowModel
-                :ModularizationElement
-                :Module
-                :Parameter
-                :Port
-                :PortDefinition
-                :ViewComponentPart
-                :ViewElement
-                :ViewPoint
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :ActionEvent
-                :LandingEvent
-                :SystemEvent
-                :ViewElementEvent
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :BehaviorConcept
-                :BehavioralFeatureConcept
-                :DomainConcept
-                :FeatureConcept
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :BooleanExpression
-                :ConditionalExpression
-                :DataBinding
-                :DynamicBehavior
-                :InteractionFlowExpression
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :BooleanExpression
-                :ConditionalExpression
-                :InteractionFlowExpression
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :ConditionalExpression
-                :DataBinding
-                :DynamicBehavior
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :ContentBinding
-                :Field
-                :Slot
-                :VisualizationAttribute
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Context
-                :InteractionFlowModelElement
-                :NamedElement
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Details
-                :Form
-                :List
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Device
-                :Position
-                :UserRole
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Expression
-                :InteractionFlow
-                :InteractionFlowElement
-                :ModularizationElement
-                :Module
-                :Parameter
-                :ParameterBinding
-                :ParameterBindingGroup
-              )
-] .
-
-
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#body -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#body">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Expression"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#id -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#id">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Element"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#isDefault -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#isDefault">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewContainer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#isLandMark -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#isLandMark">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewContainer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#isModal -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#isModal">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Window"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#isMultiSelection -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#isMultiSelection">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#SelectionField"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#isNewWindow -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#isNewWindow">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Window"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#isXor -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#isXor">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewContainer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#language -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#language">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Expression"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#name -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#name">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#text -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#text">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Annotation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#uniformResourceIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#uniformResourceIdentifier">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContentBinding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Action -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Action">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasActionEvent"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActionEvent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDynamicBehavior"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DynamicBehavior"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewContainer"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewContainer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActionEvent -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActionEvent">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#CatchingEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivationExpression -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivationExpression">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BooleanExpression"/>
+        <owl:disjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Constraint"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivityConcept -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivityConcept">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasModuleDefinition"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModuleDefinition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Annotation -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Annotation">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#text"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Element"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#BPMNActivityConcept -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BPMNActivityConcept">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivityConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#BehaviorConcept -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BehaviorConcept">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDynamicBehavior"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DynamicBehavior"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#BehavioralFeatureConcept -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BehavioralFeatureConcept">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDynamicBehavior"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DynamicBehavior"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#BooleanExpression -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BooleanExpression">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Expression"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#CatchingEvent -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#CatchingEvent">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Event"/>
+        <owl:disjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ThrowingEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ConditionalExpression -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ConditionalExpression">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContentBinding"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Expression"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Constraint -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Constraint">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BooleanExpression"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContentBinding -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContentBinding">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#uniformResourceIdentifier"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Context -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Context">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Element"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasContextDimension"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Annotation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasContextVariable"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Annotation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextDimension -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextDimension">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasContext"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Context"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextVariable -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextVariable">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasContext"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Context"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataBinding -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataBinding">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContentBinding"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasConditionalExpression"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ConditionalExpression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDataContextVariable"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataContextVariable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasVisualizationAttribute"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#VisualizationAttribute"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDomainConcept"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainConcept"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataContextVariable -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataContextVariable">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextVariable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDataBinding"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataBinding"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#SimpleContextVariable"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataFlow -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataFlow">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow"/>
+        <owl:disjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NavigationFlow"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Details -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Details">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Device -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Device">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainConcept -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainConcept">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDataBinding"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataBinding"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainElement -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainElement">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDomainModel"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainModel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainModel -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainModel">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDomainElement"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#DynamicBehavior -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DynamicBehavior">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContentBinding"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasAction"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Action"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasBehaviorConcept"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BehaviorConcept"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasBehavioralFeatureConcept"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BehavioralFeatureConcept"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Element -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Element">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasAnnotation"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Annotation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasConstraint"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Constraint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#id"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Event -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Event">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasActivationExpression"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivationExpression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowExpression"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowExpression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Expression -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Expression">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#body"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#language"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#FeatureConcept -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#FeatureConcept">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasVisualizationAttribute"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#VisualizationAttribute"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Field -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Field">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Form -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Form">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#IFMLModel -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#IFMLModel">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewPoint"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDomainModel"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainModel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowModel"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasSourceInteractionFlowElement"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasTargetInteractionFlowElement"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameterBindingGroup"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBindingGroup"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInInteractionFlow"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasOutInteractionFlow"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameters"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowExpression -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowExpression">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Expression"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlow"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModel -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModel">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowModelElement"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Element"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#JumpEvent -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#JumpEvent">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ThrowingEvent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasLandingEvent"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#LandingEvent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#SetContextEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#LandingEvent -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#LandingEvent">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#CatchingEvent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasJumpEvent"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#JumpEvent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#List -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#List">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasOnSelectEvent"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#OnSelectEvent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Menu -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Menu">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewContainer"/>
+        <owl:disjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Window"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModularizationElement -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModularizationElement">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasModulePackage"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Module -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Module">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasPort"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Port"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasModuleDefinition"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModuleDefinition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModuleDefinition -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModuleDefinition">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModularizationElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowModelElement"/>
+                <owl:someValuesFrom rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInputPort"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#PortDefinition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasModule"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Module"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasOutputPort"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#PortDefinition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasActivityConcept"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivityConcept"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModulePackage"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModulePackage -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModulePackage">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModularizationElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasPort"/>
+                <owl:someValuesFrom rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Port"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasModularizationElement"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModularizationElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Element"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#NavigationFlow -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NavigationFlow">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#OnLoadEvent -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#OnLoadEvent">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#SystemEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#OnSelectEvent -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#OnSelectEvent">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElementEvent"/>
+        <owl:disjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#OnSubmitEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#OnSubmitEvent -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#OnSubmitEvent">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElementEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBinding -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBinding">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasSourceParameter"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasTargetParameter"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBindingGroup -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBindingGroup">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameterBinding"/>
+                <owl:someValuesFrom rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBinding"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Port -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Port">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasModule"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Module"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasPortDefinition"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#PortDefinition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#PortDefinition -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#PortDefinition">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasPort"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Port"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Position -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Position">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#SelectionField -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#SelectionField">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Field"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#isMultiSelection"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#SimpleField"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#SetContextEvent -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#SetContextEvent">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ThrowingEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#SimpleContextVariable -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#SimpleContextVariable">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextVariable"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#SimpleField -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#SimpleField">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Field"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Slot -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Slot">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#SystemEvent -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#SystemEvent">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#CatchingEvent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasExpression"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Expression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ThrowingEvent -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ThrowingEvent">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#UMLBehavior -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#UMLBehavior">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BehaviorConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#UMLBehavioralFeature -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#UMLBehavioralFeature">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BehavioralFeatureConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#UMLDomainConcept -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#UMLDomainConcept">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#UMLStructuralFeature -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#UMLStructuralFeature">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#FeatureConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#UserRole -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#UserRole">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ValidationRule -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ValidationRule">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Constraint"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponent -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponent">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewComponentPart"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewContainer"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasSubViewComponentPart"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewElementEvent"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElementEvent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParentViewComponentPart"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasActivationExpression"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivationExpression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewContainer -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewContainer">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasAction"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Action"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewElement"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#isDefault"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#isLandMark"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#isXor"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElement -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElement">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewElementEvent"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElementEvent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasActivationExpression"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivationExpression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewContainer"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewContainer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElementEvent -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElementEvent">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#CatchingEvent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasViewElement"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewPoint -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewPoint">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowModelElement"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasContext"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Context"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#VisualizationAttribute -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#VisualizationAttribute">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasFeatureConcept"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#FeatureConcept"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Window -->
+
+    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Window">
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewContainer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#isModal"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#isNewWindow"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Action"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivityConcept"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextDimension"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextVariable"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainElement"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainModel"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Event"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#IFMLModel"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModel"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModularizationElement"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Module"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Port"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#PortDefinition"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElement"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewPoint"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActionEvent"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#LandingEvent"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#SystemEvent"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElementEvent"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BehaviorConcept"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BehavioralFeatureConcept"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainConcept"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#FeatureConcept"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BooleanExpression"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ConditionalExpression"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataBinding"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DynamicBehavior"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowExpression"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BooleanExpression"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ConditionalExpression"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowExpression"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ConditionalExpression"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataBinding"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DynamicBehavior"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContentBinding"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Field"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Slot"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#VisualizationAttribute"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Context"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Details"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Form"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#List"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Device"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Position"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#UserRole"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Expression"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModularizationElement"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Module"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBinding"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBindingGroup"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
