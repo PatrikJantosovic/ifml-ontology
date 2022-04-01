@@ -313,7 +313,6 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
     </owl:ObjectProperty>
     
 
@@ -751,7 +750,6 @@
 
     <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Action">
         <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
-        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasActionEvent"/>
@@ -882,7 +880,6 @@
     <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ConditionalExpression -->
 
     <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ConditionalExpression">
-        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContentBinding"/>
         <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Expression"/>
     </owl:Class>
     
@@ -929,6 +926,7 @@
                 <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Annotation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
     </owl:Class>
     
 
@@ -995,6 +993,7 @@
                 <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainConcept"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DynamicBehavior"/>
     </owl:Class>
     
 
@@ -1167,7 +1166,7 @@
     <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Expression -->
 
     <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Expression">
-        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#body"/>
@@ -1205,7 +1204,6 @@
 
     <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Field">
         <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
-        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
     </owl:Class>
     
 
@@ -1250,7 +1248,7 @@
     <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow -->
 
     <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow">
-        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasSourceInteractionFlowElement"/>
@@ -1279,7 +1277,6 @@
     <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement -->
 
     <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement">
-        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
         <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1325,21 +1322,6 @@
 
     <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModel">
         <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowModelElement"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement -->
-
-    <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement">
-        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Element"/>
     </owl:Class>
     
 
@@ -1402,15 +1384,7 @@
     <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModularizationElement -->
 
     <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModularizationElement">
-        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
         <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasModulePackage"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1418,7 +1392,6 @@
     <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Module -->
 
     <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Module">
-        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
         <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1442,12 +1415,6 @@
 
     <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModuleDefinition">
         <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModularizationElement"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowModelElement"/>
-                <owl:someValuesFrom rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInputPort"/>
@@ -1553,8 +1520,7 @@
     <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter -->
 
     <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter">
-        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
-        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
     </owl:Class>
     
 
@@ -1562,7 +1528,7 @@
     <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBinding -->
 
     <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBinding">
-        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasSourceParameter"/>
@@ -1584,7 +1550,7 @@
     <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBindingGroup -->
 
     <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBindingGroup">
-        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameterBinding"/>
@@ -1684,7 +1650,6 @@
 
     <owl:Class rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Slot">
         <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
-        <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
     </owl:Class>
     
 
@@ -1796,16 +1761,16 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParentViewComponentPart"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasActivationExpression"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivationExpression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasActivationExpression"/>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParentViewComponentPart"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivationExpression"/>
+                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1905,13 +1870,6 @@
         <rdfs:subClassOf rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowModelElement"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasContext"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Context"/>
@@ -1970,23 +1928,11 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Action"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivityConcept"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextDimension"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextVariable"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainElement"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainModel"/>
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Event"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#IFMLModel"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModel"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModularizationElement"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Module"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Port"/>
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#PortDefinition"/>
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewComponentPart"/>
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElement"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewPoint"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
@@ -1996,6 +1942,26 @@
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#LandingEvent"/>
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#SystemEvent"/>
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewElementEvent"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ActivityConcept"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextDimension"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextVariable"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainElement"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DomainModel"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Expression"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#IFMLModel"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModel"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModularizationElement"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Module"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBinding"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBindingGroup"/>
+            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewPoint"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
@@ -2012,25 +1978,7 @@
         <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BooleanExpression"/>
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ConditionalExpression"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataBinding"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DynamicBehavior"/>
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowExpression"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#BooleanExpression"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ConditionalExpression"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowExpression"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ConditionalExpression"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DataBinding"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#DynamicBehavior"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
@@ -2040,14 +1988,6 @@
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Field"/>
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Slot"/>
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#VisualizationAttribute"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Context"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModelElement"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#NamedElement"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
@@ -2064,19 +2004,6 @@
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Device"/>
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Position"/>
             <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#UserRole"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Expression"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModularizationElement"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Module"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBinding"/>
-            <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBindingGroup"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>
