@@ -152,14 +152,6 @@
     
 
 
-    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasContextVariableScope -->
-
-    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasContextVariableScope">
-        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ContextVariable"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDataBinding -->
 
     <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasDataBinding">
@@ -297,22 +289,6 @@
     <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowModel">
         <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#IFMLModel"/>
         <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModel"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowModelElement -->
-
-    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasInteractionFlowModelElement">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowModel"/>
-                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ModuleDefinition"/>
-                    <rdf:Description rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ViewPoint"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:ObjectProperty>
     
 
