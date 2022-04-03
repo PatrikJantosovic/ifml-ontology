@@ -388,6 +388,15 @@
     
 
 
+    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameter -->
+
+    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameter">
+        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
+        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameterBinding -->
 
     <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameterBinding">
@@ -402,15 +411,6 @@
     <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameterBindingGroup">
         <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlow"/>
         <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#ParameterBindingGroup"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameters -->
-
-    <owl:ObjectProperty rdf:about="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameters">
-        <rdfs:domain rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#InteractionFlowElement"/>
-        <rdfs:range rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
     </owl:ObjectProperty>
     
 
@@ -1270,7 +1270,7 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameters"/>
+                <owl:onProperty rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#hasParameter"/>
                 <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
                 <owl:onClass rdf:resource="https://github.com/PatrikJantosovic/ifml-ontology/ifml#Parameter"/>
             </owl:Restriction>
